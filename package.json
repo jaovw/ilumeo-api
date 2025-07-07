@@ -1,0 +1,36 @@
+{
+  "name": "ilumeo-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jaovw/ilumeo-api.git",
+  "author": "joaowonccepro <joao.woncce@prodigitalhr.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "scripts": {
+  "dev": "tsx watch src/main.ts",
+  "build": "tsc -p .",
+  "start": "node dist/main.js",
+  "test": "jest"
+},
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.10",
+    "@types/supertest": "^6.0.3",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "jest": "^30.0.4",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.1",
+    "ts-jest": "^29.4.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
