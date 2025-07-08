@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: ilumeo-api
+    ports:
+      - "${PORT}:${PORT}"   # Expõe somente a porta da API para o host
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - ilumeo-net
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:14
+    container_name: ilumeo-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ilumeo-net
+    # NÃO expor porta para o host — acessível somente via Docker network interna
+
+volumes:
+  pgdata:
+
+networks:
+  ilumeo-net:
