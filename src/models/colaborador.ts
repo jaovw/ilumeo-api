@@ -42,7 +42,7 @@ Colaborador.init(
     sequelize,
     modelName: 'Colaborador',
     tableName: 'colaborador',
-    timestamps: false,
+    timestamps: true,
     paranoid: true,                 // [joaovictor - 07/07/2025] Habilita deleted_at
     createdAt: 'created_at',
     deletedAt: 'deleted_at',
