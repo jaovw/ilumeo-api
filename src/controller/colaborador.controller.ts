@@ -23,6 +23,12 @@ export class ColaboradorController {
     res.json(item);
   }
 
+  static async getByMatricula(req: Request, res: Response) {
+    const item = await service.getByMatricula(Number(req.params.matricula));
+    if (!item) return res.status(404).json({ error: 'Colaborador não encontrado' });
+    res.json(item);
+  }
+
   static async update(req: Request, res: Response) {
     const updated = await service.update(Number(req.params.id), req.body);
     if (!updated) return res.status(404).json({ error: 'Colaborador não encontrado' });

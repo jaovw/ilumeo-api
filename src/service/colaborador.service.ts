@@ -14,6 +14,10 @@ export class ColaboradorService {
     return Colaborador.findByPk(id);
   }
 
+  async getByMatricula(matricula: number) {
+    return Colaborador.findOne({ where: { matricula }});
+  }
+
   async update(id: number, data: Partial<IColaborador>) {
     const colaborador = await Colaborador.findByPk(id);
     if (!colaborador) return null;

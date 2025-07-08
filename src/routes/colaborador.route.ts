@@ -5,7 +5,8 @@ const router = Router();
 
 router.post('/', ColaboradorController.create);
 router.get('/', ColaboradorController.list);
-router.get('/:id', ColaboradorController.get);
+// router.get('/:id', ColaboradorController.get);
+router.get('/:matricula', ColaboradorController.getByMatricula);
 router.put('/:id', ColaboradorController.update);
 router.delete('/:id', ColaboradorController.delete);
 

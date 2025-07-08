@@ -18,7 +18,11 @@ export class Ponto
 
 Ponto.init(
   {
-    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
     id_colaborador: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -29,8 +33,13 @@ Ponto.init(
       type: DataTypes.SMALLINT,
       allowNull: false,
     },
-    created_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
-    deleted_at: { type: DataTypes.DATE },
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    deleted_at: {
+      type: DataTypes.DATE
+    },
   },
   {
     sequelize,
