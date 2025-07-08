@@ -32,7 +32,22 @@ module.exports = {
   },
   down: async () => {
     const client = await connect();
-    await client.query(`DROP DATABASE IF EXISTS "${DB_NAME}"`);
-    await client.end();
+    const dbName = DB_NAME;
+
+    try {
+      await client.query(`
+        SELECT pg_terminate_backend(pg_stat_activity.pid)
+        FROM pg_stat_activity
+        WHERE pg_stat_activity.datname = $1
+        AND pid <> pg_backend_pid();
+      `, [dbName]);
+
+      await client.query(`DROP DATABASE IF EXISTS "${dbName}"`);
+
+      console.log(`Database ${dbName} removido com sucesso.`);
+    } catch (err) {
+      console.error('Erro ao remover o banco:', err);
+      throw err;
+    }
   },
 };

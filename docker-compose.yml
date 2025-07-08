@@ -3,17 +3,19 @@ version: '3.9'
 services:
   api:
     build: .
-    container_name: ilumeo-api
+    container_name: ilumeo
     ports:
       - "${PORT}:${PORT}"   # Expõe somente a porta da API para o host
     env_file:
       - .env
+    environment:
+      DB_HOST: ${DB_HOST_DOCKER}
     depends_on:
       - db
     networks:
       - ilumeo-net
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
 
   db:
     image: postgres:14
