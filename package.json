@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/jaovw/ilumeo-api.git",
-  "author": "joaowonccepro <joao.woncce@prodigitalhr.com.br>",
+  "author": "jaovw <joojvw@gmail.com.com.br>",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^17.0.1",
@@ -34,7 +34,7 @@
     "jest": "^30.0.4",
     "prettier": "^3.6.2",
     "sequelize-cli": "^6.6.3",
-    "supertest": "^7.1.1",
+    "supertest": "^7.1.3",
     "ts-jest": "^29.4.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
