@@ -1,18 +1,13 @@
 import express from 'express';
-import sequelize from '../config/database';
+import colaboradorRoute from '../routes/colaborador.route';
+import pontoRoute from '../routes/ponto.route';
 
 const app = express();
 
 app.use(express.json());
 
-// [joaovictor - 07/07/2025] Testa a conexão com o banco no boot
-(async () => {
-  try {
-    await sequelize.authenticate();
-    // console.log('Database connected!');
-  } catch (err) {
-    console.error('Database connection failed:', err);
-  }
-})();
+// [joaovictor - 07/07/2025] Rotas principais
+app.use('/colaborador', colaboradorRoute);
+app.use('/ponto', pontoRoute);
 
 export default app;
