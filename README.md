@@ -6,7 +6,6 @@ A aplicação utiliza o **Sequelize** como ORM com banco de dados **PostgreSQL**
 
 Além disso, o projeto conta com uma suíte de **testes unitários e de integração** utilizando **Jest** e **Supertest**, garantindo confiabilidade e cobertura de funcionalidades essenciais.
 
----
 
 ## 🚀 Tecnologias e Conceitos Utilizados
 
@@ -20,7 +19,6 @@ Além disso, o projeto conta com uma suíte de **testes unitários e de integra�
 - **Seeders controlados dinamicamente**
 - **Scripts CLI para automação de ambiente**
 
----
 
 ## 🐳 Subindo o ambiente com Docker
 
@@ -34,7 +32,37 @@ docker-compose up --build
 
 > O script de entrada (`docker-entrypoint.sh`) aguarda o banco iniciar, executa as migrations e só roda os seeders se ainda não houver colaboradores cadastrados.
 
----
+## 🔧 Rodando o ambiente local (sem Docker)
+
+1. Instale as dependências do projeto:
+
+```bash
+yarn install
+```
+
+2. Crie o banco de dados configurado no `.env`:
+
+```bash
+yarn db:create
+```
+
+3. Rode as migrations:
+
+```bash
+yarn migrate
+```
+
+4. Execute os seeders (opcional, se quiser dados iniciais para testes):
+
+```bash
+yarn seed
+```
+
+5. Inicie a aplicação em modo de desenvolvimento com recarregamento automático:
+
+```bash
+yarn dev
+```
 
 ## 🧪 Rodando os Testes
 
@@ -46,7 +74,23 @@ yarn test
 
 Os testes abrangem tanto a lógica de negócio quanto as integrações HTTP com a API.
 
----
 
 ## 📁 Estrutura de Pastas (Resumo)
+
+```text
+src/
+├── config/              # Configurações de banco, enums, etc.
+├── controllers/         # Camada de entrada (HTTP)
+├── dtos/                # Data Transfer Objects
+├── entities/            # Regras de negócio isoladas
+├── interfaces/          # Tipagens e contratos
+├── models/              # Sequelize models
+├── repositories/        # Abstrações e acesso ao banco
+├── services/            # Lógica de negócio
+├── usecases/            # Casos de uso
+├── seeders/             # Dados iniciais
+├── migrations/          # Migrations do banco
+├── tests/               # Testes automatizados
+└── main.ts              # Ponto de entrada da aplicação
+```
 
