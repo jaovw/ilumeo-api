@@ -5,6 +5,8 @@ WORKDIR /app
 COPY package*.json yarn.lock ./
 RUN yarn install
 
+RUN apk add --no-cache netcat-openbsd postgresql-client
+
 COPY . .
 
 RUN yarn build

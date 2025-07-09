@@ -15,7 +15,7 @@ module.exports = {
         nome: faker.person.fullName(),
         matricula: faker.number.int({ min: 1000, max: 9999 }),
         created_at: now,
-        updatedAt: now,
+        updated_at: now,
       }));
 
       await queryInterface.bulkInsert('colaborador', colaboradores, { transaction });
@@ -53,13 +53,13 @@ module.exports = {
               id_colaborador: colab.id,
               id_tipo: tipoPontoEnum.ENTRADA,
               created_at: entrada,
-              updatedAt: entrada,
+              updated_at: entrada,
             },
             {
               id_colaborador: colab.id,
               id_tipo: tipoPontoEnum.SAIDA,
               created_at: saida,
-              updatedAt: saida,
+              updated_at: saida,
             }
           );
         }

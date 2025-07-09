@@ -48,6 +48,7 @@ Ponto.init(
     timestamps: true,
     paranoid: true,             // [joaovictor - 07/07/2025] Habilita deleted_at
     createdAt: 'created_at',
+    updatedAt: 'updated_at',
     deletedAt: 'deleted_at',
   },
 );
