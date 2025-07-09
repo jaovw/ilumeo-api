@@ -94,3 +94,32 @@ src/
 └── main.ts              # Ponto de entrada da aplicação
 ```
 
+## 🎯 Escopo do Desafio
+
+Esta aplicação foi desenvolvida para atender ao desafio de criar uma solução completa para **controle de ponto de colaboradores**, com foco em usabilidade e clareza de informações. A arquitetura backend contempla os seguintes pilares:
+
+- **API RESTful** em Node.js + TypeScript
+- **Banco de dados relacional** com PostgreSQL
+- **ORM Sequelize** para modelagem e persistência
+- **Documentação e organização** com foco em extensibilidade
+
+A solução proposta atende aos três pontos-chave do desafio:
+
+1. ✅ **Visualização atualizada das horas trabalhadas no dia atual**  
+   - A API disponibiliza um **endpoint específico de resumo por colaborador**, que retorna informações como:
+     - Nome, matrícula
+     - Total de horas trabalhadas no dia atual
+     - Histórico de pontos anteriores
+     - Entradas e saídas com base no tipo do ponto (`ENTRADA` ou `SAIDA`)
+
+2. ✅ **Possibilidade de iniciar ou finalizar um turno**  
+   - Está disponível o **CRUD completo da entidade `Ponto`**, permitindo registrar novos pontos (início/fim de turno) de forma simples.
+   - A lógica de negócio considera o tipo de ponto para controle da jornada diária.
+
+3. ✅ **Acompanhamento do total de horas trabalhadas nos dias anteriores**  
+   - O endpoint de resumo também lista o total de horas por dia, com detalhes por data, entrada e saída.
+   - Os dados são agrupados por dia, o que facilita a visualização e análise histórica.
+
+A camada de domínio é bem estruturada, com o uso de **DTOs**, **Entities**, **UseCases** e **Repositories**, favorecendo a separação de responsabilidades e facilitando a manutenção futura da aplicação.
+
+A API está preparada para ser consumida por qualquer front-end SPA, com retornos em JSON e organização RESTful.
