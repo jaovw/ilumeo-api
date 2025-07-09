@@ -1,33 +1,30 @@
 import { IColaborador } from '../interface/colaborador-interface';
-import { Colaborador } from '../models/colaborador';
+import { ColaboradorRepository } from '../repository/colaborador.repository';
 
 export class ColaboradorService {
+  private repository = new ColaboradorRepository();
+
   async create(data: IColaborador) {
-    return Colaborador.create(data);
+    return this.repository.create(data);
   }
 
   async list() {
-    return Colaborador.findAll();
+    return this.repository.findAll();
   }
 
   async getById(id: number) {
-    return Colaborador.findByPk(id);
+    return this.repository.findById(id);
   }
 
   async getByMatricula(matricula: number) {
-    return Colaborador.findOne({ where: { matricula }});
+    return this.repository.findByMatricula(matricula);
   }
 
   async update(id: number, data: Partial<IColaborador>) {
-    const colaborador = await Colaborador.findByPk(id);
-    if (!colaborador) return null;
-    return colaborador.update(data);
+    return this.repository.update(id, data);
   }
 
   async delete(id: number) {
-    const colaborador = await Colaborador.findByPk(id);
-    if (!colaborador) return null;
-    await colaborador.destroy();      // paranoid → seta deleted_at
-    return colaborador;
+    return this.repository.delete(id);
   }
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { ColaboradorService } from '../service/colaborador.service';
+import { getColaboradorResumo } from '../usecase/get-colaborador-resumo';
 
 const service = new ColaboradorService();
 
@@ -40,4 +41,12 @@ export class ColaboradorController {
     if (!deleted) return res.status(404).json({ error: 'Colaborador não encontrado' });
     res.status(204).send();
   }
+
+  static async resumo(req: Request, res: Response) {
+  const { matricula } = req.params;
+  const resumo = await getColaboradorResumo(+matricula);
+
+  if (!resumo) return res.status(404).json({ error: 'Colaborador não encontrado' });
+  res.json(resumo);
+}
 }
